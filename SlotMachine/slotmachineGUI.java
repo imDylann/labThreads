@@ -25,13 +25,13 @@ public class slotmachineGUI extends javax.swing.JFrame {
     ImageIcon coronaIcon = new ImageIcon("icons\\corona.png");
     ImageIcon naranjaIcon = new ImageIcon("icons\\naranja.png");
     ImageIcon uvaIcon = new ImageIcon("icons\\uva.png");
-    
+ 
     
     private slotmachine slotmachine;
     
     public slotmachineGUI() {
         initComponents();
-        
+           setLocationRelativeTo(null);
     }
 
     /**
@@ -233,39 +233,43 @@ public class slotmachineGUI extends javax.swing.JFrame {
     private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
 slotmachine.setStopSpin(true);    }//GEN-LAST:event_btnStopActionPerformed
 
-    public void mostrar(int a,int b,int c){
-      
-    int[] valores = {a, b, c};
 
-    JLabel[] labels = {Lbl1, Lbl2, Lbl3};
 
-    for (int i = 0; i < valores.length; i++) {
-        switch (valores[i]) {
-            case platano:
-                labels[i].setIcon(platanoIcon);
-                break;
-            case sandia:
-                labels[i].setIcon(sandiaIcon);
-                break;
-            case fresa:
-                labels[i].setIcon(fresaIcon);
-                break;
-            case corona:
-                labels[i].setIcon(coronaIcon);
-                break;
-            case naranja:
-                labels[i].setIcon(naranjaIcon);
-                break;
-            case uva:
-                labels[i].setIcon(uvaIcon);
-                break;
-            default:
-                labels[i].setText(String.valueOf(valores[i])); // Si no es una constante conocida, mostrar el número
-                labels[i].setIcon(null); // Eliminar cualquier ícono previo
-                break;
-        }
-    }
+public void mostrar(int num1, int num2, int num3) {
+    Lbl1.setIcon(getIconForNumber(num1));
+    Lbl2.setIcon(getIconForNumber(num2));
+    Lbl3.setIcon(getIconForNumber(num3));
 }
+
+private ImageIcon getIconForNumber(int number) {
+    String iconPath = "/icons/";
+
+    switch (number) {
+        case 1:
+            iconPath += "platano.png";
+            break;
+        case 2:
+            iconPath += "sandia.png";
+            break;
+        case 3:
+            iconPath += "fresa.png";
+            break;
+        case 4:
+            iconPath += "corona.png";
+            break;
+        case 5:
+            iconPath += "naranja.png";
+            break;
+        case 6:
+            iconPath += "uva.png";
+            break;
+        default:
+            return null; // O un icono por defecto
+    }
+
+    return new ImageIcon(getClass().getResource(iconPath));
+}
+
     /**
      * @param args the command line arguments
      */
