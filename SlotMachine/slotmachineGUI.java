@@ -4,16 +4,34 @@
  */
 package SlotMachine;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Saliim
  */
 public class slotmachineGUI extends javax.swing.JFrame {
-
+    final int platano=1;
+    final int sandia=2;
+    final int fresa=3;
+    final int corona=4;
+    final int naranja=5;
+    final int uva=6;
+    
+    ImageIcon platanoIcon = new ImageIcon("icons\\platano.png");
+    ImageIcon sandiaIcon = new ImageIcon("icons\\sandia.png");
+    ImageIcon fresaIcon = new ImageIcon("icons\\fresa.png");
+    ImageIcon coronaIcon = new ImageIcon("icons\\corona.png");
+    ImageIcon naranjaIcon = new ImageIcon("icons\\naranja.png");
+    ImageIcon uvaIcon = new ImageIcon("icons\\uva.png");
+    
+    
     private slotmachine slotmachine;
+    
     public slotmachineGUI() {
         initComponents();
-       
+        
     }
 
     /**
@@ -216,10 +234,38 @@ public class slotmachineGUI extends javax.swing.JFrame {
 slotmachine.setStopSpin(true);    }//GEN-LAST:event_btnStopActionPerformed
 
     public void mostrar(int a,int b,int c){
-        Lbl1.setText(String.valueOf(a));
-        Lbl2.setText(String.valueOf(b));
-        Lbl3.setText(String.valueOf(c));
+      
+    int[] valores = {a, b, c};
+
+    JLabel[] labels = {Lbl1, Lbl2, Lbl3};
+
+    for (int i = 0; i < valores.length; i++) {
+        switch (valores[i]) {
+            case platano:
+                labels[i].setIcon(platanoIcon);
+                break;
+            case sandia:
+                labels[i].setIcon(sandiaIcon);
+                break;
+            case fresa:
+                labels[i].setIcon(fresaIcon);
+                break;
+            case corona:
+                labels[i].setIcon(coronaIcon);
+                break;
+            case naranja:
+                labels[i].setIcon(naranjaIcon);
+                break;
+            case uva:
+                labels[i].setIcon(uvaIcon);
+                break;
+            default:
+                labels[i].setText(String.valueOf(valores[i])); // Si no es una constante conocida, mostrar el número
+                labels[i].setIcon(null); // Eliminar cualquier ícono previo
+                break;
+        }
     }
+}
     /**
      * @param args the command line arguments
      */
