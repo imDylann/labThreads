@@ -222,12 +222,12 @@ public class slotmachineGUI extends javax.swing.JFrame {
     private void btnSpinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpinActionPerformed
       slotmachine=new slotmachine(this); 
         slotmachine.start();
-        if(1==1){
+       /* if(1==1){
             this.dispose();
             DisplayWinner D = new DisplayWinner();
             D.setVisible(true);
             D.setEnabled(true);
-        }
+        }*/
     }//GEN-LAST:event_btnSpinActionPerformed
 
     private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
